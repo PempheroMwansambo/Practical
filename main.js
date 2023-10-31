@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Get user input
-    const districtId = document.getElementById("district_id").value;
+    const district_id = document.getElementById("district_id").value;
     document
       .getElementById("searchButton")
       .addEventListener("click", function () {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const districtId = document.getElementById("district-id").value;
 
     // Get user input
-    const ownerId = document.getElementById("owner-id").value;
+    const owner_id = document.getElementById("owner-id").value;
     document
       .getElementById("searchButton")
       .addEventListener("click", function () {
