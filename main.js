@@ -45,7 +45,83 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Get user input
+    const districtId = document.getElementById("district_id").value;
+    document
+      .getElementById("searchButton")
+      .addEventListener("click", function () {
+        // Get the user's search input
+        var searchInput = document.getElementById("searchInput").value;
+
+        // Construct the API request URL
+        var apiUrl =
+          "https://zipatala.health.gov.mw/api/districts" + searchInput;
+
+        // Make an API request (you can use the Fetch API or jQuery's $.ajax)
+        fetch(apiUrl)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            // Process the API response and display the results
+            displaySearchResults(data);
+          })
+          .catch(function (error) {
+            console.error("API request error: " + error);
+          });
+      });
+
+    function displaySearchResults(results) {
+      var resultsContainer = document.getElementById("searchResults");
+      resultsContainer.innerHTML = ""; // Clear previous results
+
+      // Iterate through the API results and display them on your website
+      results.forEach(function (result) {
+        var resultElement = document.createElement("div");
+        resultElement.textContent = result.title;
+        resultsContainer.appendChild(resultElement);
+      });
+    }
+
     const districtId = document.getElementById("district-id").value;
+
+    // Get user input
+    const ownerId = document.getElementById("owner-id").value;
+    document
+      .getElementById("searchButton")
+      .addEventListener("click", function () {
+        // Get the user's search input
+        var searchInput = document.getElementById("searchInput").value;
+
+        // Construct the API request URL
+        var apiUrl = "https://zipatala.health.gov.mw/api/ownwers" + searchInput;
+
+        // Make an API request (you can use the Fetch API or jQuery's $.ajax)
+        fetch(apiUrl)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            // Process the API response and display the results
+            displaySearchResults(data);
+          })
+          .catch(function (error) {
+            console.error("API request error: " + error);
+          });
+      });
+
+    function displaySearchResults(results) {
+      var resultsContainer = document.getElementById("searchResults");
+      resultsContainer.innerHTML = ""; // Clear previous results
+
+      // Iterate through the API results and display them on your website
+      results.forEach(function (result) {
+        var resultElement = document.createElement("div");
+        resultElement.textContent = result.title;
+        resultsContainer.appendChild(resultElement);
+      });
+    }
+
     const ownerId = document.getElementById("owner-id").value;
 
     // Send data to the server for facility creation (POST request)
