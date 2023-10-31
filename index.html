@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hospital Facility Management</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Hospital Facility Management</h1>
+    <div class="facility-form">
+      <h2>Create a New Facility</h2>
+      <form id="facility-form">
+        <label for="facility-name">Facility Name:</label>
+        <input type="text" id="facility-name" required />
+
+        <label for="owner-id">Owner ID:</label>
+        <input type="text" id="owner-id" required />
+
+       
+
+       
+            <script>
+              function generateFacilityCode() {
+                // Get the district code from the input field
+                var districtCode =
+                  document.getElementById("districtCode").value;
+
+                // Generate a random number between 1 and 9999
+                var randomNumber = Math.floor(Math.random() * 9999) + 1;
+
+                // Combine the district code and the random number to create the facility code
+                var facilityCode = districtCode + randomNumber;
+
+                // Display the facility code in the output field
+                document.getElementById("facilityCode").value = facilityCode;
+              }
+            </script>
+          </head>
+          <body>
+            <label for="districtCode">District Code:</label>
+            <input type="text" id="districtCode" />
+            <button onclick="generateFacilityCode()">
+              Generate Facility Code
+            </button>
+
+            <br />
+
+            <label for="facilityCode">Facility Code:</label>
+            <input type="text" id="facilityCode" readonly />
+        
+
+        <button type="submit">Create Facility</button>
+      </form>
+    </div>
+    <div class="facility-list">
+      <h2>Facility List</h2>
+      <input type="text" id="search-input" placeholder="Search..." />
+
+      <select id="filter-select">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="archived">Archived</option>
+      </select>
+
+      <ul id="facility-list">
+        <!-- Facility items will be displayed here -->
+      </ul>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
